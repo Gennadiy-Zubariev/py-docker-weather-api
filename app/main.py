@@ -3,11 +3,12 @@ import requests
 
 API_KEY = os.environ.get("API_KEY")  # noqa: N806
 CITY = "Paris"
+BASE_URL = "https://api.weatherapi.com/v1/current.json"
 
 
 def get_weather() -> None:
     response = requests.get(
-        "https://api.weatherapi.com/v1/current.json",
+        BASE_URL,
         {"key": API_KEY, "q": CITY}
     )
 
