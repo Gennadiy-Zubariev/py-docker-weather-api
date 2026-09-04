@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM python:3-slim
 LABEL authors="gena"
 
 WORKDIR /app

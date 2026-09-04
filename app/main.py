@@ -1,14 +1,14 @@
 import os
 import requests
 
+API_KEY = os.environ.get("API_KEY")  # noqa: N806
+CITY = "Paris"
+
 
 def get_weather() -> None:
-    api_key = os.environ.get("API_KEY")
-    city = "Paris"
-
     response = requests.get(
         "https://api.weatherapi.com/v1/current.json",
-        {"key": api_key, "q": city}
+        {"key": API_KEY, "q": CITY}
     )
 
     data = response.json()
@@ -16,7 +16,7 @@ def get_weather() -> None:
     location = data["location"]
     current = data["current"]
 
-    print(f"Performing request to Weather API for city {city}...")
+    print(f"Performing request to Weather API for city {CITY}...")
     print(
         f'{location["name"]}/{location["country"]} '
         f'{location["localtime"]} '
